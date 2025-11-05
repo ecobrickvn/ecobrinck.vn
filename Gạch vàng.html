@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ecobrick Tile A1 – Gạch xanh tái chế từ nhựa mềm</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- HEADER (khôi phục search + đăng nhập) -->
+  <header class="header" data-header>
+    <div class="container">
+
+      <div class="overlay" data-overlay></div>
+
+      <a href="index.html" class="logo">
+        <img src="Logo EB màu.png" width="60" height="60" alt="Ecobrick logo">
+      </a>
+
+      <nav class="navbar" data-navbar>
+        <ul class="navbar-list">
+          <li class="navbar-item">
+            <a href="index.html#home" class="navbar-link">Trang chủ</a>
+          </li>
+          <li class="navbar-item">
+            <a href="about.html" class="navbar-link">Về chúng tôi</a>
+          </li>
+          <li class="navbar-item dropdown">
+            <a href="index.html#products" class="navbar-link active" id="productLink">Sản phẩm</a>
+            <ul class="dropdown-menu" id="productDropdown">
+              <li><a href="index.html#products">Gạch Mini</a></li>
+              <li><a href="index.html#products">Gạch Standard</a></li>
+              <li><a href="index.html#products">Gạch Premium</a></li>
+            </ul>
+          </li>
+          <li class="navbar-item">
+            <a href="index.html#process" class="navbar-link">Quy trình</a>
+          </li>
+          <li class="navbar-item">
+            <a href="index.html#contact" class="navbar-link">Liên hệ</a>
+          </li>
+        </ul>
+
+        <ul class="nav-action-list">
+          <li class="search-wrapper">
+            <div class="search-bar">
+              <i class="fa-solid fa-magnifying-glass search-icon" aria-hidden="true"></i>
+              <input type="text" placeholder="Tìm kiếm" class="search-input">
+              <i class="fa-solid fa-xmark search-close" aria-hidden="true"></i>
+            </div>
+          </li>
+         <li>
+  <a href="login.html" class="nav-action-btn">
+    <ion-icon name="person-outline"></ion-icon>
+    <span class="nav-action-text">Đăng nhập</span>
+  </a>
+</li>
+        </ul>
+      </nav>
+
+    </div>
+  </header>
+
+  <!-- MAIN PRODUCT SECTION -->
+  <main class="main product-page">
+    <div class="product-container">
+      <!-- Left: Image Gallery -->
+      <div class="product-gallery">
+        <div class="main-image">
+          <img id="mainProductImage" src="images/4.png" alt="Ecobrick Tile A1">
+        </div>
+        <div class="thumbnail-list">
+          <!-- Thêm nhiều thumbnail để test swap -->
+          <img src="images/7.png" class="thumb" alt="Ảnh 1">
+        </div>
+      </div>
+
+      <!-- Right: Product Details -->
+      <div class="product-info">
+        <h1 class="product-title">Ecobrick Tile A1 – Gạch xanh tái chế từ nhựa mềm</h1>
+        <p class="product-price">Giá: <strong>160.000đ / viên</strong></p>
+        <p class="product-desc">
+          Được sản xuất từ vật liệu tái chế thân thiện với môi trường, gạch Ecobrick Tile A1 có độ bền cao, khả năng chống thấm tốt,
+          phù hợp cho lát nền và ốp tường trong không gian nội – ngoại thất. Mỗi viên gạch chứa khoảng 1% nhựa tái chế, góp phần giảm thiểu rác thải nhựa ra môi trường.
+        </p>
+
+        <!-- Kích thước -->
+        <div class="product-option">
+          <h4>Kích thước</h4>
+          <div class="size-options">
+            <span class="size" data-size="300x300">300x300</span>
+            <span class="size" data-size="400x400">400x400</span>
+            <span class="size" data-size="500x500">500x500</span>
+          </div>
+        </div>
+
+        <button class="btn add-cart">
+          <i class="fa-solid fa-cart-shopping"></i> Thêm vào giỏ hàng
+        </button>
+      </div>
+    </div>
+
+    <!-- Related Products -->
+    <section class="related-products">
+      <h2 class="section-title">Sản phẩm tương tự</h2>
+      <div class="related-list">
+        <div class="related-item">
+          <img src="images/3.png" alt="Tile B1">
+          <h4>Ecobrick Tile B1</h4>
+          <p>120.000đ / viên</p>
+        </div>
+        <div class="related-item">
+          <img src="images/4.png" alt="Tile C1">
+          <h4>Ecobrick Tile C1</h4>
+          <p>150.000đ / viên</p>
+        </div>
+        <div class="related-item">
+          <img src="images/5.png" alt="Tile E1">
+          <h4>Ecobrick Tile E1</h4>
+          <p>140.000đ / viên</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER (khôi phục phần Kết nối với chúng tôi) -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-about">
+        <img src="Logo EB trắng.png" alt="Ecobrick Logo" class="footer-logo">
+      </div>
+
+      <div class="footer-links">
+        <h4>Liên kết nhanh</h4>
+        <ul>
+          <li><a href="index.html">Trang chủ</a></li>
+          <li><a href="about.html">Về chúng tôi</a></li>
+          <li><a href="index.html#products">Sản phẩm</a></li>
+          <li><a href="index.html#process">Quy trình sản xuất</a></li>
+          <li><a href="index.html#contact">Liên hệ</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-contact">
+        <h4>Liên hệ</h4>
+        <p>📍 Nguyễn Văn Cừ, Ninh Kiều, TP Cần Thơ</p>
+        <p>📞 0909 123 456</p>
+        <p>📧 ecobrick.vn@gmail.com</p>
+      </div>
+
+      <div class="footer-social">
+        <h4>Kết nối với chúng tôi</h4>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-tiktok"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2025 Ecobrick. All rights reserved. Thiết kế và phát triển bởi Ecobrick Team.</p>
+    </div>
+  </footer>
+
+  <!-- scripts -->
+  <!-- nếu bạn dùng script.js ngoài thì vẫn giữ, nội dung xử lý swap/size/cart sẽ chạy từ file đó -->
+  <script src="script.js"></script>
+
+  <!-- fallback inline script: an toàn nếu bạn đang test -->
+ <script>
+document.addEventListener("DOMContentLoaded", function() {
+  // Swap ảnh (fade) - an toàn nếu script.js chưa load
+  const mainImage = document.getElementById("mainProductImage");
+  const thumbnails = document.querySelectorAll(".thumb");
+
+  if (mainImage && thumbnails.length > 0) {
+    thumbnails.forEach(thumb => {
+      thumb.addEventListener("click", () => {
+        const mainSrc = mainImage.getAttribute("src");
+        const thumbSrc = thumb.getAttribute("src");
+
+        console.log("Click thumbnail:", thumbSrc); // debug
+
+        // Nếu bấm vào chính ảnh đang hiển thị thì bỏ qua
+        if (mainSrc === thumbSrc) return;
+
+        // Hiệu ứng fade
+        mainImage.classList.add("fade-out");
+
+        setTimeout(() => {
+          // Hoán đổi src giữa ảnh chính và thumbnail
+          mainImage.setAttribute("src", thumbSrc);
+          thumb.setAttribute("src", mainSrc);
+
+          mainImage.classList.remove("fade-out");
+          mainImage.classList.add("fade-in");
+
+          setTimeout(() => {
+            mainImage.classList.remove("fade-in");
+          }, 400);
+        }, 300);
+      });
+    });
+  }
+
+  // Chọn kích thước
+  const sizes = document.querySelectorAll(".size");
+  if (sizes.length > 0) {
+    sizes.forEach(size => {
+      size.addEventListener("click", () => {
+        sizes.forEach(s => s.classList.remove("active"));
+        size.classList.add("active");
+        console.log("Kích thước đã chọn:", size.dataset.size);
+      });
+    });
+  }
+
+  // Nút thêm vào giỏ hàng (ripple + scale)
+  const cartButton = document.querySelector(".btn.add-cart");
+  if (cartButton) {
+    cartButton.addEventListener("click", () => {
+      cartButton.classList.remove("clicked");
+      void cartButton.offsetWidth; // restart animation
+      cartButton.classList.add("clicked");
+
+      cartButton.style.transform = "scale(1.08)";
+      setTimeout(() => cartButton.style.transform = "scale(1)", 200);
+
+      console.log("Đã thêm vào giỏ hàng!");
+    });
+  }
+
+  // Search close UX
+  const searchInput = document.querySelector(".search-input");
+  const searchClose = document.querySelector(".search-close");
+  if (searchInput && searchClose) {
+    searchClose.addEventListener("click", () => {
+      searchInput.value = "";
+      searchInput.blur();
+    });
+  }
+});
+</script>
+</body>
+</html>

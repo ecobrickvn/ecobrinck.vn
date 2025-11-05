@@ -1,0 +1,623 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Tạo tài khoản - Ecobrick</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Meta for SEO -->
+  <meta name="description" content="Ecobrick - Tạo tài khoản để lưu đơn hàng, yêu thích sản phẩm và thanh toán nhanh hơn.">
+
+  <style>
+    /* Bố cục chung */
+    .signup-page {
+      min-height: calc(100vh - 200px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      background: #f8f9fa;
+    }
+
+    .signup-container {
+      background: white;
+      width: 100%;
+      max-width: 550px; /* TĂNG RỘNG TỪ 480px → 550px */
+      border-radius: 16px;
+      padding: 2.5rem;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+      position: relative;
+    }
+
+    .close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      font-size: 1.5rem;
+      color: #999;
+      cursor: pointer;
+      background: none;
+      border: none;
+    }
+
+    .signup-title {
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: #20803F;
+    }
+
+    .signup-note {
+      text-align: center;
+      color: #20803F;
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+      font-weight: 500;
+    }
+
+    .signup-desc {
+      text-align: center;
+      color: #666;
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+      line-height: 1.5;
+    }
+
+    .input-group {
+      position: relative;
+      margin-bottom: 1rem;
+    }
+
+    .input-group input,
+    .input-group select {
+      width: 100%;
+      padding: 0.9rem 1rem 0.9rem 2.5rem;
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      font-size: 1rem;
+      background: #fafafa;
+    }
+
+    .input-group i {
+      position: absolute;
+      left: 0.8rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #aaa;
+      font-size: 1.1rem;
+    }
+
+    .show-pass {
+      position: absolute;
+      right: 0.8rem;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+      color: #aaa;
+    }
+
+    .btn-google {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.8rem;
+      width: 100%;
+      border: 1.5px solid #ddd;
+      background: white;
+      padding: 0.9rem;
+      border-radius: 12px;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      color: #20803F;
+      margin-bottom: 1.5rem;
+    }
+
+    .google-btn:hover {
+      border-color: #20803F;
+      box-shadow: 0 0 15px rgba(32, 128, 63, 0.3);
+      animation: flickGlowGreen 1.2s infinite alternate;
+    }
+
+    @keyframes flickGlowGreen {
+      0% { box-shadow: 0 0 15px rgba(32, 128, 63, 0.3); }
+      100% { box-shadow: 0 0 25px rgba(32, 128, 63, 0.6), 0 0 35px rgba(32, 128, 63, 0.4); }
+    }
+
+    .google-btn::before {
+      content: '';
+      position: absolute;
+      top: 50%; left: 50%;
+      width: 0; height: 0;
+      background: rgba(32, 128, 63, 0.25);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      transition: width 0.6s ease, height 0.6s ease;
+      z-index: 0;
+    }
+
+    .google-btn:active::before {
+      width: 300px;
+      height: 300px;
+    }
+
+    .google-btn > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .divider {
+      display: flex;
+      align-items: center;
+      text-align: center;
+      color: #aaa;
+      margin: 1.5rem 0;
+      font-size: 0.9rem;
+      gap: 0.5rem;
+    }
+
+    .divider::before,
+    .divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: #ddd;
+      min-width: 50px;
+    }
+
+    .divider span {
+      padding: 0 0.5rem;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .password-hint {
+      color: #666;
+      font-size: 0.8rem;
+      margin-top: -0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .date-group {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .date-group select {
+      flex: 1;
+      padding: 0.9rem;
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      background: #fafafa;
+      font-size: 1rem;
+    }
+
+    /* SỬA LỖI PHẦN SỐ LIÊN LẠC: ALIGN CHUẨN, BORDER KHỚP, ICON PHONE ĐÚNG */
+    .phone-group {
+      display: flex;
+      margin-bottom: 1rem;
+      position: relative;
+    }
+
+    .phone-group select {
+      width: 100px;
+      padding: 0.9rem;
+      border: 1px solid #ddd;
+      border-right: none;
+      border-radius: 12px 0 0 12px;
+      background: #fafafa;
+      font-size: 1rem;
+      appearance: none; /* Ẩn mũi tên dropdown mặc định */
+    }
+
+    .phone-group input {
+      flex: 1;
+      padding: 0.9rem 1rem;
+      border: 1px solid #ddd;
+      border-left: none;
+      border-radius: 0 12px 12px 0;
+      font-size: 1rem;
+      background: #fafafa;
+    }
+
+    .phone-group i {
+      position: absolute;
+      left: 0.8rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #aaa;
+      font-size: 1.1rem;
+      z-index: 1;
+    }
+
+    .checkbox-group {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+      font-size: 0.85rem;
+      color: #666;
+    }
+
+    .checkbox-group input {
+      margin-top: 0.2rem;
+    }
+
+    .btn-signup {
+      width: 100%;
+      background: #20803F;
+      color: white;
+      border: none;
+      padding: 1rem;
+      border-radius: 12px;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .btn-signup:hover {
+      background: #1a6c33;
+    }
+
+    @media (max-width: 480px) {
+      .signup-container {
+        padding: 1.5rem;
+      }
+      .date-group, .phone-group {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      .phone-group select {
+        width: 100%;
+        border-radius: 12px;
+        border-right: 1px solid #ddd;
+      }
+      .phone-group input {
+        border-radius: 12px;
+        border-left: 1px solid #ddd;
+      }
+      .phone-group i {
+        left: 1rem; /* Align icon trên mobile */
+      }
+    }
+    /* === FORM LABEL === */
+.form-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #20803F;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+/* SỬA LẠI PHONE GROUP: ICON KHÔNG CHE SỐ */
+.phone-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  position: relative;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fafafa;
+}
+
+.phone-icon {
+  position: absolute;
+  left: 0.8rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #aaa;
+  font-size: 1.1rem;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.phone-code {
+  width: 90px;
+  padding: 0.9rem 0.5rem 0.9rem 2.8rem; /* Đẩy chữ ra để không bị icon che */
+  border: none;
+  border-right: 1px solid #ddd;
+  background: transparent;
+  font-size: 1rem;
+  color: #333;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath fill='%23666' d='M0 0l5 6 5-6z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.8rem center;
+  background-size: 10px;
+}
+
+.phone-input {
+  flex: 1;
+  padding: 0.9rem 1rem 0.9rem 1rem; /* Không padding trái để icon không che */
+  border: none;
+  background: transparent;
+  font-size: 1rem;
+  color: #333;
+}
+
+/* FOCUS HIỆU ỨNG */
+.phone-group:focus-within {
+  border-color: #20803F;
+  box-shadow: 0 0 0 2px rgba(32, 128, 63, 0.15);
+}
+
+/* NGÀY SINH: HIỆN DROPDOWN CHUẨN */
+.date-select {
+  flex: 1;
+  padding: 0.9rem 2.2rem 0.9rem 1rem; /* Đẩy chữ ra để hiện mũi tên */
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  background: #fafafa;
+  font-size: 1rem;
+  color: #333;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23666' d='M0 0l6 8 6-8z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 12px;
+  cursor: pointer;
+}
+
+.date-select:focus {
+  outline: none;
+  border-color: #20803F;
+  box-shadow: 0 0 0 2px rgba(32, 128, 63, 0.15);
+}
+
+/* RESPONSIVE */
+@media (max-width: 480px) {
+  .date-group {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .phone-group {
+    flex-direction: column;
+  }
+  .phone-code {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #ddd;
+    border-radius: 12px 12px 0 0;
+    padding-left: 3rem;
+  }
+  .phone-input {
+    border-radius: 0 0 12px 12px;
+  }
+  .phone-icon {
+    left: 1rem;
+  }
+}
+
+  </style>
+</head>
+<body>
+  <div class="app">
+    <!-- HEADER -->
+    <header class="header" data-header>
+      <div class="container">
+        <div class="overlay" data-overlay></div>
+        <a href="index.html" class="logo">
+          <img src="Logo EB màu.png" width="60" height="60" alt="Ecobrick logo">
+        </a>
+        <nav class="navbar" data-navbar>
+          <ul class="navbar-list">
+            <li class="navbar-item"><a href="index.html#home" class="navbar-link">Trang chủ</a></li>
+            <li class="navbar-item"><a href="index.html#about" class="navbar-link">Về chúng tôi</a></li>
+            <li class="navbar-item dropdown">
+              <a href="index.html#products" class="navbar-link">Sản phẩm</a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Gạch Mini</a></li>
+                <li><a href="#">Gạch Standard</a></li>
+                <li><a href="#">Gạch Premium</a></li>
+              </ul>
+            </li>
+            <li class="navbar-item"><a href="index.html#process" class="navbar-link">Quy trình</a></li>
+            <li class="navbar-item"><a href="index.html#contact" class="navbar-link">Liên hệ</a></li>
+          </ul>
+          <ul class="nav-action-list">
+            <li class="search-wrapper">
+              <div class="search-bar">
+                <ion-icon name="search-outline" class="search-icon"></ion-icon>
+                <input type="text" placeholder="Tìm kiếm" class="search-input">
+                <ion-icon name="close-outline" class="search-close"></ion-icon>
+              </div>
+            </li>
+            <li>
+  <a href="login.html" class="nav-action-btn">
+    <ion-icon name="person-outline"></ion-icon>
+    <span class="nav-action-text">Đăng nhập</span>
+  </a>
+</li>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- MAIN: TRANG TẠO TÀI KHOẢN -->
+    <main class="main signup-page">
+      <section class="page content active-page">
+        <div class="signup-container">
+          <a href="index.html" class="close">×</a>
+
+          <h2 class="signup-title">TẠO TÀI KHOẢN</h2>
+          <p class="signup-note">Lưu ý: Chỉ những đơn hàng được đặt sau khi tạo tài khoản mới được lưu trong tài khoản ECOBRICK của bạn.</p>
+          <p class="signup-desc">
+            Lưu thông tin của bạn để thanh toán nhanh hơn, lưu trữ các sản phẩm vào danh sách yêu thích và xem lịch sử đơn hàng & hoàn trả của bạn.
+          </p>
+
+          <!-- NÚT GOOGLE -->
+          <button class="btn-google google-btn">
+  <img src="https://www.google.com/favicon.ico" alt="Google" class="google-logo"/>
+</button>
+
+          <div class="divider"><span>hoặc tiếp tục với</span></div>
+
+          <!-- FORM -->
+          <form>
+            <div class="input-group">
+              <i class="fas fa-envelope"></i>
+              <input type="email" placeholder="Địa chỉ email" required />
+            </div>
+
+            <div class="input-group">
+              <i class="fas fa-lock"></i>
+              <input type="password" id="signupPassword" placeholder="Mật khẩu" required />
+              <i class="fas fa-eye show-pass" onclick="toggleSignupPass()"></i>
+            </div>
+            <p class="password-hint">
+              Mật khẩu phải có ít nhất 8 ký tự bao gồm chữ hoa và chữ thường, và ít nhất một chữ số.
+            </p>
+
+           <!-- NGÀY SINH -->
+<label class="form-label">Ngày sinh *</label>
+<div class="date-group">
+  <select class="date-select" id="birthYear" required>
+    <option value="" disabled selected>Năm</option>
+  </select>
+  <select class="date-select" id="birthMonth" required>
+    <option value="" disabled selected>MM</option>
+  </select>
+  <select class="date-select" id="birthDay" required>
+    <option value="" disabled selected>DD</option>
+  </select>
+</div>
+
+<!-- SỐ LIÊN LẠC -->
+<label class="form-label">Số liên lạc</label>
+<div class="phone-group">
+  <select class="phone-code" id="phoneCode">
+    <option>+84</option>
+    <option>+1</option>
+    <option>+81</option>
+  </select>
+  <input type="tel" class="phone-input" id="phoneNumber" placeholder="Số điện thoại liên hệ" required />
+</div>
+
+            <button type="submit" class="btn-signup">TẠO TÀI KHOẢN</button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-about">
+          <img src="Logo EB trắng.png" alt="Ecobrick Logo" class="footer-logo">
+        </div>
+        <div class="footer-links">
+          <h4>Liên kết nhanh</h4>
+          <ul>
+            <li><a href="index.html#home">Trang chủ</a></li>
+            <li><a href="index.html#about">Giới thiệu</a></li>
+            <li><a href="index.html#products">Sản phẩm</a></li>
+            <li><a href="index.html#process">Quy trình sản xuất</a></li>
+            <li><a href="index.html#contact">Liên hệ</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+ <h4>Liên hệ</h4>
+          <p>📍 Nguyễn Văn Cừ, Ninh Kiều, TP Cần Thơ</p>
+          <p>📞 0909 123 456</p>
+          <p>📧 ecobrick.vn@gmail.com</p>
+          <p>🕒 8:00 - 17:00 (T2 - T7)</p>
+        </div>
+        <div class="footer-social">
+          <h4>Kết nối với chúng tôi</h4>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-tiktok"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 Ecobrick. All rights reserved. Thiết kế và phát triển bởi Ecobrick Team.</p>
+      </div>
+    </footer>
+
+    <!-- IonIcons -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+    <script src="script.js"></script>
+
+    <!-- Toggle password -->
+    <script>
+      function toggleSignupPass() {
+        const pass = document.getElementById('signupPassword');
+        const icon = document.querySelector('.show-pass');
+        if (pass.type === 'password') {
+          pass.type = 'text';
+          icon.classList.replace('fa-eye', 'fa-eye-slash');
+        } else {
+          pass.type = 'password';
+          icon.classList.replace('fa-eye-slash', 'fa-eye');
+        }
+      }
+// === TỰ ĐỘNG ĐIỀN NGÀY SINH ===
+const yearSelect = document.getElementById('birthYear');
+const monthSelect = document.getElementById('birthMonth');
+const daySelect = document.getElementById('birthDay');
+
+// Năm: từ 1900 đến năm hiện tại
+for (let year = new Date().getFullYear(); year >= 1900; year--) {
+  const option = document.createElement('option');
+  option.value = year;
+  option.textContent = year;
+  yearSelect.appendChild(option);
+}
+
+// Tháng: 1 - 12
+for (let month = 1; month <= 12; month++) {
+  const option = document.createElement('option');
+  option.value = month;
+  option.textContent = month.toString().padStart(2, '0');
+  monthSelect.appendChild(option);
+}
+
+// Ngày: 1 - 31
+for (let day = 1; day <= 31; day++) {
+  const option = document.createElement('option');
+  option.value = day;
+  option.textContent = day.toString().padStart(2, '0');
+  daySelect.appendChild(option);
+}
+
+// Cập nhật số ngày theo tháng/năm (tùy chọn nâng cao)
+function updateDays() {
+  const year = yearSelect.value;
+  const month = monthSelect.value;
+  if (!year || !month) return;
+
+  const daysInMonth = new Date(year, month, 0).getDate();
+  daySelect.innerHTML = '<option value="" disabled selected>DD</option>';
+  for (let day = 1; day <= daysInMonth; day++) {
+    const option = document.createElement('option');
+    option.value = day;
+    option.textContent = day.toString().padStart(2, '0');
+    daySelect.appendChild(option);
+  }
+}
+monthSelect.addEventListener('change', updateDays);
+yearSelect.addEventListener('change', updateDays);
+    </script>
+  </div>
+</body>
+</html>

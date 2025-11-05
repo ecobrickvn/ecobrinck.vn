@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Ecobrick — Quy trình sản xuất</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- CSS ĐÃ SỬA: HIỂN THỊ ĐẦY ĐỦ HÌNH TRÒN SỐ + CĂN ĐỀU NỘI DUNG -->
+  <style>
+    .process-page {
+      background: linear-gradient(to bottom, #f8f9fa, #e8f5e8);
+      min-height: 100vh;
+    }
+
+    .process-section {
+      padding: 7rem 0 4rem; /* Tăng khoảng cách trên */
+      max-width: 1200px;
+      margin: 0 auto;
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+
+    .process-title {
+      text-align: center;
+      font-size: 3rem;
+      color: #20803F;
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+
+    .process-subtitle {
+      text-align: center;
+      color: #666;
+      font-size: 1.2rem;
+      margin-bottom: 4rem;
+    }
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 3rem;
+      margin-bottom: 4rem;
+    }
+
+    /* CARD: BỎ overflow: hidden → HIỂN THỊ HÌNH TRÒN SỐ */
+    .process-card {
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      min-height: 550px;
+      overflow: visible !important; /* QUAN TRỌNG: Cho phép số hiện ra */
+    }
+
+    .process-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 40px rgba(32, 128, 63, 0.2);
+    }
+
+    /* HÌNH TRÒN SỐ: ĐẨY LÊN TRÊN, KHÔNG BỊ ẨN */
+    .process-number {
+      position: absolute;
+      top: -30px; /* Tăng khoảng cách lên */
+      left: 50%;
+      transform: translateX(-50%);
+      background: linear-gradient(135deg, #20803F, #80B03F);
+      color: white;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      font-weight: bold;
+      z-index: 10;
+      box-shadow: 0 4px 15px rgba(32, 128, 63, 0.4);
+    }
+
+    /* ẢNH: CỐ ĐỊNH CHIỀU CAO */
+    .process-image {
+      height: 250px;
+      overflow: hidden;
+      position: relative;
+      border-radius: 15px 15px 0 0;
+    }
+
+    .process-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .process-card:hover .process-image img {
+      transform: scale(1.05);
+    }
+
+    /* NỘI DUNG: ĐẨY XUỐNG, CĂN ĐỀU */
+    .process-content {
+      padding: 2.5rem 2rem 2rem; /* Tăng padding-top */
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+
+    .process-content h3 {
+      color: #20803F;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+
+    .process-content p {
+      color: #555;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+      flex-grow: 1;
+      font-size: 1rem;
+    }
+
+    .process-btn {
+      background: #20803F;
+      color: white;
+      border: none;
+      padding: 0.8rem 1.5rem;
+      border-radius: 25px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: background 0.3s ease;
+      align-self: flex-start;
+      margin-top: auto;
+    }
+
+    .process-btn:hover {
+      background: #1a6c33;
+    }
+
+    .process-dot {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 20px;
+      height: 20px;
+      background: #80B03F;
+      border-radius: 50%;
+      opacity: 0.7;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .process-section {
+        padding: 6rem 0 3rem;
+      }
+      .process-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+      .process-card {
+        min-height: auto;
+      }
+      .process-title {
+        font-size: 2.2rem;
+      }
+      .process-image {
+        height: 200px;
+      }
+      .process-number {
+        top: -25px;
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <!-- HEADER -->
+    <header class="header" data-header>
+      <div class="container">
+        <div class="overlay" data-overlay></div>
+        <a href="#home" class="logo">
+          <img src="Logo EB màu.png" width="60" height="60" alt="Ecobrick logo">
+        </a>
+        <nav class="navbar" data-navbar>
+          <ul class="navbar-list">
+            <li class="navbar-item"><a href="#home" class="navbar-link" data-target="home">Trang chủ</a></li>
+            <li class="navbar-item"><a href="#about" class="navbar-link" data-target="impact">Về chúng tôi</a></li>
+            <li class="navbar-item dropdown">
+              <a href="#products" class="navbar-link" id="productLink" data-target="products">Sản phẩm</a>
+              <ul class="dropdown-menu" id="productDropdown">
+                <li><a href="#" data-target="products">Gạch Mini</a></li>
+                <li><a href="#" data-target="products">Gạch Standard</a></li>
+                <li><a href="#" data-target="products">Gạch Premium</a></li>
+              </ul>
+            </li>
+            <li class="navbar-item"><a href="#process" class="navbar-link active" data-target="process">Quy trình</a></li>
+            <li class="navbar-item"><a href="#contact" class="navbar-link" data-target="contact">Liên hệ</a></li>
+          </ul>
+          <ul class="nav-action-list">
+            <li class="search-wrapper">
+              <div class="search-bar">
+                <ion-icon name="search-outline" class="search-icon"></ion-icon>
+                <input type="text" placeholder="Tìm kiếm" class="search-input">
+                <ion-icon name="close-outline" class="search-close"></ion-icon>
+              </div>
+            </li>
+           <li>
+  <a href="login.html" class="nav-action-btn">
+    <ion-icon name="person-outline"></ion-icon>
+    <span class="nav-action-text">Đăng nhập</span>
+  </a>
+</li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- MAIN -->
+    <main class="main process-page">
+      <section id="process" class="page content active-page">
+        <div class="process-section">
+          <h1 class="process-title">QUY TRÌNH SẢN XUẤT</h1>
+          <p class="process-subtitle">Từ rác thải nhựa đến vật liệu xây dựng bền vững – Hành trình tái chế xanh của Ecobrick</p>
+
+          <div class="process-grid">
+            <!-- BƯỚC 01 -->
+            <article class="process-card">
+              <div class="process-number">01</div>
+              <div class="process-image">
+                <img src="images/B1.jpg" alt="Thu gom rác thải nhựa" />
+              </div>
+              <div class="process-content">
+                <h3>THU GOM NHỰA</h3>
+                <p>Nhựa phế thải được thu gom từ các nguồn sinh hoạt, công nghiệp và khu dân cư, đảm bảo nguồn nguyên liệu sạch và bền vững.</p>
+                
+              </div>
+            </article>
+
+            <!-- BƯỚC 02 -->
+            <article class="process-card">
+              <div class="process-number">02</div>
+              <div class="process-image">
+                <img src="images/B2.JPG" alt="Phân loại và xử lý nhựa" />
+              </div>
+              <div class="process-content">
+                <h3>PHÂN LOẠI & <br> XỬ LÝ</h3>
+                <p>Sử dụng công nghệ hiện đại để phân loại và làm sạch nhựa, loại bỏ tạp chất nhằm đảm bảo chất lượng cao cho sản phẩm cuối cùng.</p>
+               
+              </div>
+            </article>
+
+            <!-- BƯỚC 03 -->
+            <article class="process-card">
+              <div class="process-number">03</div>
+              <div class="process-image">
+                <img src="images/B3.JPG" alt="Nghiền nhựa" />
+              </div>
+              <div class="process-content">
+                <h3>NGHIỀN NHỰA</h3>
+                <p>Nhựa sạch được nghiền thành hạt nhỏ hoặc mảnh vụn, giúp dễ dàng trộn đều trong hỗn hợp vật liệu xây dựng.</p>
+                
+              </div>
+            </article>
+
+            <!-- BƯỚC 04 -->
+            <article class="process-card">
+              <div class="process-number">04</div>
+              <div class="process-image">
+                <img src="images/B4.JPG" alt="Phối trộn" />
+              </div>
+              <div class="process-content">
+                <h3>PHỐI TRỘN</h3>
+                <p>Nhựa nghiền được phối trộn với hỗn hợp vật liệu vô cơ gồm xi măng, cát, đá theo tỉ lệ, đảm bảo tính liên kết.</p>
+               
+              </div>
+            </article>
+
+            <!-- BƯỚC 05 -->
+            <article class="process-card">
+              <div class="process-number">05</div>
+              <div class="process-image">
+                <img src="images/B5.JPG" alt="Định hình" />
+              </div>
+              <div class="process-content">
+                <h3>ĐỊNH HÌNH</h3>
+                <p>Hỗn hợp sau khi trộn được đổ vào khuôn và định hình trên cơ chế rung với tần suất cao, tạo hình dạng viên gạch tiêu chuẩn.</p>
+          
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+  <div class="footer-container">
+    <div class="footer-about">
+      <img src="Logo EB trắng.png" alt="Ecobrick Logo" class="footer-logo">
+    </div>
+    <div class="footer-links">
+      <h4>Liên kết nhanh</h4>
+      <ul>
+        <li><a href="#">Trang chủ</a></li>
+        <li><a href="#">Giới thiệu</a></li>
+        <li><a href="#">Sản phẩm</a></li>
+        <li><a href="#">Quy trình sản xuất</a></li>
+        <li><a href="#">Dự án & Đối tác</a></li>
+        <li><a href="#">Liên hệ</a></li>
+      </ul>
+    </div>
+    <div class="footer-contact">
+      <h4>Liên hệ</h4>
+          <p>📍 Nguyễn Văn Cừ, Ninh Kiều, TP Cần Thơ</p>
+          <p>📞 0909 123 456</p>
+          <p>📧 ecobrick.vn@gmail.com</p>
+          <p>🕒 8:00 - 17:00 (T2 - T7)</p>
+    </div>
+    <div class="footer-social">
+      <h4>Kết nối với chúng tôi</h4>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-tiktok"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Ecobrick. All rights reserved. Thiết kế và phát triển bởi Ecobrick Team.</p>
+  </div>
+</footer>
+
+    <!-- IonIcons -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

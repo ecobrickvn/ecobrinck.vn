@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Ecobrick — Gạch tái chế</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Meta for SEO -->
+  <meta name="description" content="Ecobrick - Biến rác thải nhựa thành gạch lát đường bền & thân thiện môi trường.">
+</head>
+<body>
+  <div class="app">
+    <!-- HEADER (Pookie-style) -->
+    <header class="header" data-header>
+      <div class="container">
+
+        <div class="overlay" data-overlay></div>
+
+        <a href="#home" class="logo">
+          <img src="Logo EB màu.png" width="60" height="60" alt="Ecobrick logo">
+        </a>
+
+        <nav class="navbar" data-navbar>
+
+          
+          <ul class="navbar-list">
+            <li class="navbar-item">
+              <a href="#home" class="navbar-link active" data-target="home">Trang chủ</a>
+            </li>
+            <li class="navbar-item">
+              <a href="#about" class="navbar-link" data-target="impact">Về chúng tôi</a>
+            </li>
+            <li class="navbar-item dropdown">
+              <a href="#products" class="navbar-link" id="productLink" data-target="products">Sản phẩm</a>
+              <ul class="dropdown-menu" id="productDropdown">
+                <li><a href="#" data-target="products">Gạch Mini</a></li>
+                <li><a href="#" data-target="products">Gạch Standard</a></li>
+                <li><a href="#" data-target="products">Gạch Premium</a></li>
+              </ul>
+            </li>
+            <li class="navbar-item">
+              <a href="#process" class="navbar-link" data-target="process">Quy trình</a>
+            </li>
+            <li class="navbar-item">
+              <a href="#contact" class="navbar-link" data-target="contact">Liên hệ</a>
+            </li>
+          </ul>
+
+          <ul class="nav-action-list">
+            <!-- Thanh search inline (mới, giống demo) -->
+            <li class="search-wrapper">
+              <div class="search-bar">
+                <ion-icon name="search-outline" class="search-icon"></ion-icon>
+                <input type="text" placeholder="Tìm kiếm" class="search-input">
+                <ion-icon name="close-outline" class="search-close"></ion-icon>
+              </div>
+            </li>
+            <!-- Nút đăng nhập (giữ nguyên) -->
+<li>
+  <a href="login.html" class="nav-action-btn">
+    <ion-icon name="person-outline"></ion-icon>
+    <span class="nav-action-text">Đăng nhập</span>
+  </a>
+</li>
+          </ul>
+
+        </nav>
+
+      </div>
+    </header>
+
+
+    <!-- MAIN -->
+    <main class="main">
+      <!-- Content wrapper -->
+      <section id="home" class="page content active-page">
+        <!-- Hero -->
+        <section class="hero">
+          <div class="hero-left">
+            <h1>GẠCH TÁI CHẾ <span class="highlight"></h1><br><h2>Dự án thử nghiệm sản xuất gạch từ nhựa tái chế</span></h2>
+            <p class="lead">Chúng tôi tận dụng rác thải nhựa, tái chế thành vật liệu xây dựng bền – đẹp – thân thiện với môi trường.</p>
+            <div class="hero-cta">
+              <button class="btn primary" id="explore-products">Khám phá sản phẩm →</button>
+            </div>
+          </div>
+          <div class="hero-right">
+            <img src="images/Banner.jpg" alt="Gạch lát từ rác nhựa" />
+          </div>
+        </section>
+
+        <!-- ECOBRICK CÓ GÌ? -->
+        <section class="section pad">
+          <h2 class="section-title">ECOBRICK CÓ GÌ?</h2>
+          <p class="section-sub">Những mẫu gạch tái chế nổi bật của chúng tôi</p>
+
+          <div class="product-list">
+            <article class="card product-card">
+              <img src="images/Gạch Mosaic Xanh.jpg" alt="Sản phẩm 1" />
+              <div class="card-body">
+                <h3>Gạch Mosaic Xanh</h3>
+                <p>Tạo điểm nhấn độc đáo cho không gian sống với họa tiết màu sắc sinh động, mang lại cảm giác tươi mới.</p>
+                <a href="#" class="chip">Xem chi tiết</a>
+              </div>
+            </article>
+
+            <article class="card product-card">
+              <img src="images/EcoTerrazzo Panel.jpg" alt="Sản phẩm 2" />
+              <div class="card-body">
+                <h3>EcoTerrazzo Panel</h3>
+                <p>Giải pháp thẩm mỹ, thân thiện môi trường cho nội thất hiện đại, mang lại vẻ đẹp tự nhiên và tinh tế.</p>
+                <a href="#" class="chip">Xem chi tiết</a>
+              </div>
+            </article>
+
+            <article class="card product-card">
+              <img src="images/HDPE.jpg" alt="Sản phẩm 3" />
+              <div class="card-body">
+                <h3>Gạch lục giác Ecobrick Hexa</h3>
+                <p>Thiết kế tối ưu và bền vững cho lối đi công cộng, đường nội bộ và các khu vực sinh hoạt ngoài trời.</p>
+                <a href="#" class="chip">Xem chi tiết</a>
+              </div>
+            </article>
+          </div>
+
+          <div class="center">
+            <a class="link" href="#products" id="view-all">Xem tất cả sản phẩm</a>
+          </div>
+        </section>
+
+        <!-- Process preview -->
+        <section class="section pad">
+          <h2 class="section-title">QUY TRÌNH SẢN XUẤT</h2>
+          <div class="process-grid">
+            <div class="process-card" style="background:#1565C0;">
+              <div class="icon">🗑️</div>
+              <h3>Thu gom nhựa</h3>
+              <p>Thu thập rác thải nhựa từ hộ gia đình, khu dân cư và nhà máy để tái chế</p>
+            </div>
+            <div class="process-card" style="background:#00796B;">
+              <div class="icon">🔍</div>
+              <h3>Phân loại – Xử lý</h3>
+              <p>Thu thập rác thải nhựa từ hộ gia đình, khu dân cư và nhà máy để tái chế</p>
+            </div>
+            <div class="process-card" style="background:#FBC02D;">
+              <div class="icon">🧊</div>
+              <h3>Ép thành nhựa</h3>
+              <p>Nung chảy và ép thành các khối nhựa có độ bền cao, sẵn sàng tạo hình</p>
+            </div>
+            <div class="process-card" style="background:#4DB6AC;">
+              <div class="icon">🛣️</div>
+              <h3>Lát đường</h3>
+              <p>Gia công, hoàn thiện bề mặt và lắp đặt làm gạch lát cho công trình xanh</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Impact -->
+        <section class="section pad section-light">
+          <h2 class="section-title">TÁC ĐỘNG & LỢI ÍCH</h2>
+          <p class="section-sub">Giảm rác thải nhựa, tạo việc làm và nâng cao cảnh quan đô thị</p>
+
+          <div class="impact-cards">
+            <div class="impact-card">
+              <div class="icon">♻️</div>
+              <h4>Giảm ô nhiễm</h4>
+              <p>Giảm lượng nhựa ra môi trường, góp phần vệ sinh đô thị</p>
+            </div>
+            <div class="impact-card">
+              <div class="icon">🏗️</div>
+              <h4>Bền & Tiết kiệm</h4>
+              <p>Sản phẩm độ bền cao, ít bảo trì hơn vật liệu truyền thống</p>
+            </div>
+            <div class="impact-card">
+              <div class="icon">🤝</div>
+              <h4>Tạo việc làm</h4>
+              <p>Tạo chuỗi giá trị và cơ hội việc làm cho cộng đồng</p>
+            </div>
+          </div>
+        </section>
+
+      </section>
+
+      <!-- PRODUCTS PAGE -->
+      <section id="products" class="page content">
+        <div class="section pad">
+          <h2 class="section-title">SẢN PHẨM</h2>
+          <p class="section-sub">Toàn bộ sản phẩm gạch tái chế</p>
+
+          <div class="grid-3">
+            <!-- reuse product cards -->
+            <article class="card">
+              <img src="assets/product-1.jpg" alt="Sản phẩm 1" />
+              <div class="card-body">
+                <h3>Gạch Mosaic Xanh</h3>
+                <p>Chi tiết về sản phẩm...</p>
+                <button class="btn outline">Thêm vào giỏ</button>
+              </div>
+            </article>
+            <article class="card">
+              <img src="assets/product-2.jpg" alt="Sản phẩm 2" />
+              <div class="card-body">
+                <h3>Gạch Biển</h3>
+                <p>Chi tiết về sản phẩm...</p>
+                <button class="btn outline">Thêm vào giỏ</button>
+              </div>
+            </article>
+            <article class="card">
+              <img src="assets/product-3.jpg" alt="Sản phẩm 3" />
+              <div class="card-body">
+                <h3>Gạch Đường</h3>
+                <p>Chi tiết về sản phẩm...</p>
+                <button class="btn outline">Thêm vào giỏ</button>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROCESS PAGE -->
+      <section id="process" class="page content">
+        <div class="section pad">
+          <h2 class="section-title">QUY TRÌNH SẢN XUẤT (CHI TIẾT)</h2>
+          <div class="process-detail">
+            <!-- detail blocks -->
+            <div class="process-item">
+              <h3>1. Thu gom nhựa</h3>
+              <p>Mô tả chi tiết...</p>
+            </div>
+            <div class="process-item">
+              <h3>2. Phân loại & Xử lý</h3>
+              <p>Mô tả chi tiết...</p>
+            </div>
+            <div class="process-item">
+              <h3>3. Ép thành nhựa</h3>
+              <p>Mô tả chi tiết...</p>
+            </div>
+            <div class="process-item">
+              <h3>4. Lát đường</h3>
+              <p>Mô tả chi tiết...</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- IMPACT PAGE -->
+      <section id="impact" class="page content">
+        <div class="section pad">
+          <h2 class="section-title">TÁC ĐỘNG & LỢI ÍCH</h2>
+          <p class="section-sub">Thông tin chi tiết về tác động</p>
+          <!-- reuse impact cards -->
+          <div class="impact-cards">
+            <div class="impact-card">
+              <div class="icon">♻️</div>
+              <h4>Giảm ô nhiễm</h4>
+              <p>Thông tin chi tiết...</p>
+            </div>
+            <div class="impact-card">
+              <div class="icon">🏗️</div>
+              <h4>Bền & Tiết kiệm</h4>
+              <p>Thông tin chi tiết...</p>
+            </div>
+            <div class="impact-card">
+              <div class="icon">🤝</div>
+              <h4>Tạo việc làm</h4>
+              <p>Thông tin chi tiết...</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT PAGE -->
+      <section id="contact" class="page content">
+        <div class="section pad">
+          <h2 class="section-title">LIÊN HỆ</h2>
+          <p class="section-sub">Cùng chúng tôi xây dựng những con đường xanh sạch.</p>
+          <form class="contact-form" onsubmit="return false;">
+            <label>
+              Tên
+              <input type="text" placeholder="Họ và tên" />
+            </label>
+            <label>
+              Email
+              <input type="email" placeholder="email@ecobrick.example" />
+            </label>
+            <label>
+              Tin nhắn
+              <textarea rows="4" placeholder="Nội dung..."></textarea>
+            </label>
+            <button class="btn primary">Gửi</button>
+          </form>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <div class="footer-container">
+          <div class="footer-about">
+            <img src="Logo EB trắng.png" alt="Ecobrick Logo" class="footer-logo">
+          </div>
+      
+          <div class="footer-links">
+            <h4>Liên kết nhanh</h4>
+            <ul>
+              <li><a href="#">Trang chủ</a></li>
+              <li><a href="#">Giới thiệu</a></li>
+              <li><a href="#">Sản phẩm</a></li>
+              <li><a href="#">Quy trình sản xuất</a></li>
+              <li><a href="#">Dự án & Đối tác</a></li>
+              <li><a href="#">Liên hệ</a></li>
+            </ul>
+          </div>
+      
+          <div class="footer-contact">
+            <h4>Liên hệ</h4>
+            <p>📍 Nguyễn Văn Cừ, Ninh Kiều, TP Cần Thơ</p>
+            <p>📞 0909 123 456</p>
+            <p>📧 ecobrick.vn@gmail.com</p>
+            <p>🕒 8:00 - 17:00 (T2 - T7)</p>
+          </div>
+      
+          <div class="footer-social">
+            <h4>Kết nối với chúng tôi</h4>
+            <div class="social-icons">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-tiktok"></i></a>
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+          </div>
+        </div>
+      
+        <div class="footer-bottom">
+          <p>© 2025 Ecobrick. All rights reserved. Thiết kế và phát triển bởi Ecobrick Team.</p>
+        </div>
+      </footer>
+      
+
+  <!-- IonIcons -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+  <script src="script.js"></script>
+</body>
+</html>
